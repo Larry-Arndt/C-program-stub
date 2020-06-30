@@ -1,0 +1,33 @@
+int main() {
+    std::atomic<bool> interrupted;
+    char x;
+
+  do {
+        interrupted.store(false);
+
+        // create a new thread that does stuff in the background
+
+        std::thread timerThread([&]()
+            {
+
+                while (!interrupted)
+                {
+
+			// does game stuff moves monsters checks 
+			// checks for random encounters
+			// hosts enemy attacks
+			// updates clock timer too
+
+            }});
+            x = _getch();
+        //take input without waiting for an enterkey pressed
+       // upon input interrupt thread 
+
+
+        interrupted.store(true);
+        timerThread.join();
+
+	// based on input does character actions like move or attack
+
+    } while (x != '5'); // exit condition
+}
